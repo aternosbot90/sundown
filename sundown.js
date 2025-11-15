@@ -1,5 +1,5 @@
 const scroll = new LocomotiveScroll({
-    el: document.getElementById('main'),
+    el: document.querySelector('#main'),
     smooth: true
 });
 
@@ -7,7 +7,8 @@ const scroll = new LocomotiveScroll({
 // var abc = a.getAttribute("data-image");
 // console.log(abc)
 
-var elemC = document.querySelector("#elem-container")
+function page3Animation(){
+  var elemC = document.querySelector("#elem-container")
 var fixed = document.querySelector("#fixed-image")
 elemC.addEventListener("mouseenter", function(){
     fixed.style.display = "block";
@@ -30,13 +31,15 @@ var elems = document.querySelectorAll(".elem")
         fixed.style.backgroundImage = `url(${image})`
     })
   })
-  var page4img = document.querySelector("#page4-img")
+}
+
+  var page3img = document.querySelector("#page3-image")
   var desc = document.querySelector("#desc")
   var active= document.querySelectorAll(".active")
       active.forEach(function(e){
         e.addEventListener("click", function(){
             var data = e.getAttribute("data-img")
-            page4img.setAttribute("src", data)
+            page3img.setAttribute("src", data)
             var dataDesc = e.getAttribute("data-desc")
             desc.innerHTML = dataDesc
         })
@@ -54,3 +57,17 @@ var elems = document.querySelectorAll(".elem")
             t.style.paddingLeft = "0"
         });
       });
+    function swiperAnimation(){
+      var swiper = new Swiper(".mySwiper", {
+      slidesPerView: "auto",
+      centeredSlides: false,
+      spaceBetween: 100,
+    });
+    }
+    swiperAnimation();
+    page3Animation();
+
+     var loader = document.querySelector("#loader")
+    setTimeout(function(){
+          loader.style.top = "-100%"
+    },4000)
